@@ -26,9 +26,15 @@ bounce:
 	-./bin/petmail restart n1
 	-./bin/petmail restart n2
 
-rebuild: stop n1 n2 bounce
+rebuild: stop n1 n2
+	rm -rf .rendezvous
+	$(MAKE) bounce
 
 dump-n1:
 	sqlite3 n1/petmail.db .dump
 dump-n2:
 	sqlite3 n2/petmail.db .dump
+dump-ren:
+	deps-venv/bin/python petmail/dump-messages.py .rendezvous
+pyflakes:
+	pyflakes petmail
