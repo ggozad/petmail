@@ -15,7 +15,7 @@ To run from source, you will need Python (2.x) and the development headers
 (python-dev). You will then build the dependencies, create and start a node,
 and open the web-based control panel like so:
 
-* python setup.py build-deps
+* python setup.py build_deps
 * ./bin/petmail create-node
 * ./bin/petmail start
 * ./bin/petmail open
